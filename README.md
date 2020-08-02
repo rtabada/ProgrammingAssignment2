@@ -87,7 +87,7 @@ For this assignment, assume that the matrix supplied is always
 invertible.
 
 # My Solution
-### A function creates a special "matrix" object that can cache its inverse.
+### A function that creates a special "matrix" object that can cache its inverse.
     makeCacheMatrix <- function(x = matrix()) {
         invMat  <- NULL
         set <- function(y){
@@ -103,7 +103,7 @@ invertible.
              getInverse = getInverse)
     }
 
-### A function computes the inverse of the special "matrix" created by makeCacheMatrix
+### A function that computes the inverse of the special "matrix" created by makeCacheMatrix
 
     cacheSolve <- function(x, ...) {
        ## Return a matrix that is the inverse of 'x'
