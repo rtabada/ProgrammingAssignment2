@@ -86,8 +86,9 @@ function in R. For example, if `X` is a square invertible matrix, then
 For this assignment, assume that the matrix supplied is always
 invertible.
 
-## function creates a special "matrix" object that can cache its inverse.
-makeCacheMatrix <- function(x = matrix()) {
+## My Solution
+# A function creates a special "matrix" object that can cache its inverse.
+    makeCacheMatrix <- function(x = matrix()) {
         invMat  <- NULL
         set <- function(y){
                x <<- y
@@ -100,11 +101,11 @@ makeCacheMatrix <- function(x = matrix()) {
              get = get, 
              setInverse = setInverse, 
              getInverse = getInverse)
-}
+    }
 
-## function computes the inverse of the special "matrix" created by makeCacheMatrix
+# A function computes the inverse of the special "matrix" created by makeCacheMatrix
 
-cacheSolve <- function(x, ...) {
+    cacheSolve <- function(x, ...) {
        ## Return a matrix that is the inverse of 'x'
        invMat <- x$getInverse()
        if(!is.null(invMat)){
@@ -115,42 +116,41 @@ cacheSolve <- function(x, ...) {
        invMat <- solve(mat,...)
        x$setInverse(invMat)
        invMat
-}
-```
+    }
+
 
 # Testing the Functions
-
-Testing the Functions
-test_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
-test_matrix$get()
-##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
-test_matrix$getInverse()
-## NULL
-cacheSolve(test_matrix)
-##      [,1] [,2]
-## [1,]   -2  1.5
-## [2,]    1 -0.5
-test_matrix$getInverse()
-##      [,1] [,2]
-## [1,]   -2  1.5
-## [2,]    1 -0.5
-test_matrix$set(matrix(c(2, 2, 1, 4), 2, 2))
-test_matrix$get()
-##      [,1] [,2]
-## [1,]    2    1
-## [2,]    2    4
-test_matrix$getInverse()
-## NULL
-cacheSolve(test_matrix)
-##            [,1]       [,2]
-## [1,]  0.6666667 -0.1666667
-## [2,] -0.3333333  0.3333333
-test_matrix$getInverse()
-##            [,1]       [,2]
-## [1,]  0.6666667 -0.1666667
-## [2,] -0.3333333  0.3333333
+    cacheSolve <- function(x, ...) {
+    test_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
+    test_matrix$get()
+    ##      [,1] [,2]
+    ## [1,]    1    3
+    ## [2,]    2    4
+    test_matrix$getInverse()
+    ## NULL
+    cacheSolve(test_matrix)
+    ##      [,1] [,2]
+    ## [1,]   -2  1.5
+    ## [2,]    1 -0.5
+    test_matrix$getInverse()
+    ##      [,1] [,2]
+    ## [1,]   -2  1.5
+    ## [2,]    1 -0.5
+    test_matrix$set(matrix(c(2, 2, 1, 4), 2, 2))
+    test_matrix$get()
+    ##      [,1] [,2]
+    ## [1,]    2    1
+    ## [2,]    2    4
+    test_matrix$getInverse()
+    ## NULL
+    cacheSolve(test_matrix)
+    ##            [,1]       [,2]
+    ## [1,]  0.6666667 -0.1666667
+    ## [2,] -0.3333333  0.3333333  
+    test_matrix$getInverse()
+    ##            [,1]       [,2]
+    ## [1,]  0.6666667 -0.1666667
+    ## [2,] -0.3333333  0.3333333
 
 In order to complete this assignment, you must do the following:
 
