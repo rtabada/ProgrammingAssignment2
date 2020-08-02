@@ -120,7 +120,7 @@ invertible.
 
 
 ### Testing the Functions
-    cacheSolve <- function(x, ...) {
+    
     test_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
     test_matrix$get()
     ##      [,1] [,2]
